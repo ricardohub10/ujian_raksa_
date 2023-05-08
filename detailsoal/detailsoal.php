@@ -27,7 +27,7 @@ $f = $_GET['f']?$_GET['f']:"";
             <li <?php if($f==2){ ?>class="active"<?php } ?>><a href="index.php?detailsoal&f=2&idgroup=<?php echo $idgroup ?>"><h4><i class="fa fa-th-large"></i> Soal Benar Salah</h4></a></li>
             <li <?php if($f==4){ ?>class="active"<?php } ?>><a href="index.php?detailsoal&f=4&idgroup=<?php echo $idgroup ?>"><h4><i class="fa fa-th-large"></i> Soal Multiple Answer</h4></a></li>
             <li <?php if($f==5){ ?>class="active"<?php } ?>><a href="index.php?detailsoal&f=5&idgroup=<?php echo $idgroup ?>"><h4><i class="fa fa-th-large"></i> Soal Mengurutkan</h4></a></li>
-            <li <?php if($f==6){ ?>class="active"<?php } ?>><a href="index.php?detailsoal&f=5&idgroup=<?php echo $idgroup ?>"><h4><i class="fa fa-th-large"></i> Soal Kostick</h4></a></li>
+            <li <?php if($f==6){ ?>class="active"<?php } ?>><a href="index.php?detailsoal&f=6&idgroup=<?php echo $idgroup ?>"><h4><i class="fa fa-th-large"></i> Soal Kostick</h4></a></li>
 
         </ul>
     </div>

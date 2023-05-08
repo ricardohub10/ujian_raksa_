@@ -114,7 +114,14 @@ include "header.php";
             include "detailsoal/soalsorting/tambahsoal.php";
         }else{
             echo "<script>window.history.go(-1);</script>";
+        }   
+     }else if($_SESSION && isset($_GET["tambahsoalkostick"])){
+        if($_SESSION['status'] == 'guru' or $_SESSION['status'] == 'admin'){
+            include "detailsoal/soalkostick/tambahsoal.php";
+        }else{
+            echo "<script>window.history.go(-1);</script>";
         }
+    
     }else if($_SESSION && isset($_GET["editsoalsorting"])){
         if($_SESSION['status'] == 'guru' or $_SESSION['status'] == 'admin'){
             include "detailsoal/soalsorting/editsoal.php";
