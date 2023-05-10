@@ -59,7 +59,6 @@ if($_SESSION['iduser'] == $d['iduser']){
                             <th class="text-center"></th>
                             <th class="">Soal</th>
                             <th width="300" class="">pembahasan</th>
-                            <th width="150" class="text-center">Jawaban Benar</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
@@ -72,9 +71,9 @@ if($_SESSION['iduser'] == $d['iduser']){
                             <tr>
                                 <td class="text-center"><?php echo $no++; ?></td>
                                 <td class="text-center"><?php //echo $no++; ?></td>
-                                <td class=""><?php echo $hasil['soal']; ?></td>
+                                <td class=""><?php echo $hasil['pilihana'].$hasil['pilihanb']; ?></td>
                                 <td width="300" class=""><?php if($hasil['pembahasan']==''){echo "Tidak ada pembahasan untuk soal ini";}else{echo $hasil['pembahasan']; } ?></td>
-                                <td width="150" class="text-center"><?php echo $hasil['pilihanbenar']; ?></td>
+                                <!-- <td width="150" class="text-center"><?php echo $hasil['pilihanbenar']; ?></td> -->
                                 <!--<td class="text-center"></td>-->
                                 <?php if($_SESSION['iduser']==$d['iduser']){?>
                                     <td class="text-center">

@@ -36,7 +36,6 @@
                     <option value="W">Kebutuhan akan aturan dan pengarahan</option>
                     <option value="X">Kebutuhan untuk diperhatikan</option>
                     <option value="Z">Kebutuhan akan perubahan</option>
-              
                 </select>
             </label>
         <div>

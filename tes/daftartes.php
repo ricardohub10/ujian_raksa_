@@ -107,7 +107,10 @@ where
     j.iduser = '$_SESSION[iduser]' and
     j.idujian = '$_SESSION[idujian]'
     limit ".$mulai." , ".$tes
+
 );
+
+
 while ($data = mysqli_fetch_array($hasil)){
 ?>
 <div class="block full">
@@ -197,6 +200,33 @@ while ($data = mysqli_fetch_array($hasil)){
     </table>
     <br>
     <br>
+    <?php }elseif($data['jenissoal']== 'kostickanswer'){ ?>
+
+    
+        <table>
+        <tr>
+            <td colspan="2"><p><?php echo $data['soal']; ?></p></td>
+        </tr>
+            <td valign=top style='width:27.15pt;padding:0cm 5.4pt 0cm 5.4pt'>
+            <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+            150%'><span style='font-family:"MS Mincho"'>
+            <input name="pilihan[]" <?php if($data['jawaban'] == "a"){echo "checked"; }?> value="<?php echo $data["kostickcategory_a"]?>" type="radio"></span></p></td> 
+
+            <td valign=top style='width:415.25pt;padding:0cm 5.4pt 0cm 5.4pt'>
+            <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+            150%'><span style='font-family:"Times New Roman","serif"'><?php echo $data['pilihana'];?></span></p>
+            </td>
+        <tr>
+            <td width=36 valign=top style='width:27.15pt;padding:0cm 5.4pt 0cm 5.4pt'>
+            <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+            150%'><span style='font-family:"MS Mincho"'>
+            <input name="pilihan[]" <?php if($data['jawaban'] == "b"){echo "checked"; }?> value="<?php echo $data["kostickcategory_b"]?>" type="radio"></span></p></td>   
+            <td width=554 valign=top style='width:415.25pt;padding:0cm 5.4pt 0cm 5.4pt'>
+            <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+            150%'><span style='font-family:"Times New Roman","serif"'><?php echo $data['pilihanb'];?></span></p>
+            </td>
+        </tr>
+    </table>
 <?php }elseif($data['jenissoal']=='truefalse'){ ?>
     <!-- <table cellpadding="0" cellspacing="0">
         <tr>
