@@ -59,6 +59,15 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label>Tipe Karyawan</label>
+                            <div >
+                                <select name="status" class="form-control">
+                                    <option value="">Non Karyawan</option>
+                                    <option value="karyawan">Karyawan</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label >username</label>
                             <div >
                                 <input type="text" name="username" value="" class="form-control" required>
@@ -125,6 +134,7 @@
                     <th class="text-center">Jenis Kelamin</th>
                     <th class="text-center">Tempat/TGL Lahir</th>
                     <th class="text-center">Status</th>
+                    <th class="text-center">Tipe Karyawan</th>
                     <th class="text-center">Username</th>
                     <th class="text-center">Actions</th>
                 </tr>
@@ -142,6 +152,9 @@
                         <td class="text-center"><?php echo $hasil['jk'] == 'laki-laki' ? 'Laki-laki' : 'Perempuan'; ?></td>
                         <td class="text-center"><?php echo $hasil['tempatlahir'].', '.date('d F Y', strtotime($hasil['tgllahir']));?></td>
                         <td class="text-center"><?php echo $hasil['status']; ?></td>
+                        <td>
+                        <?php if($hasil['tipe_karyawan']=='karyawan'){ echo '<span class="label label-success">Karyawan</span>' ;} else { echo '<span class="label label-danger">Non Karyawan</span>';} ?>
+                        </td>
                         <td class="text-center"><?php echo $hasil['username']; ?></td>
                         <!--<td class="text-center"></td>-->
                         <td class="text-center">
@@ -195,6 +208,15 @@
                                                 <option <?php if($hasil['status']=='admin'){echo "selected"; } ?> value="admin">admin</option>
                                                 <option <?php if($hasil['status']=='guru'){echo "selected"; } ?> value="guru">guru</option>
                                                 <option <?php if($hasil['status']=='siswa'){echo "selected"; } ?> value="siswa">siswa</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tipe Karyawan</label>
+                                        <div >
+                                            <select name="tipe_karyawan" class="form-control">
+                                                <option <?php if($hasil['tipe_karyawan']==NULL){echo "selected"; } ?> value="<?php echo $hasil['tipe_karyawan'] ?>">Non Karyawan</option>
+                                                <option <?php if($hasil['tipe_karyawan']=='karyawan'){echo "selected"; } ?> value="karyawan">Karyawan</option>
                                             </select>
                                         </div>
                                     </div>

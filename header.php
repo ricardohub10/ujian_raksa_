@@ -36,13 +36,17 @@
         <link rel="stylesheet" href="css/main.css">
 
         <!-- Include a specific file here from css/themes/ folder to alter the default theme of the template -->
-
+        
         <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
         <link rel="stylesheet" href="css/themes.css">
         <!-- END Stylesheets -->
-
+        
         <!-- Modernizr (browser feature detection library) -->
         <script src="js/vendor/modernizr.min.js"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.14/css/bootstrap-select.min.css">
+
+
     </head>
     <body>
     <div id="page-wrapper" class="page-loading">

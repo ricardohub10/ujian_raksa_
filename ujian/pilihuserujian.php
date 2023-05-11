@@ -59,10 +59,10 @@
                             </div>
                             <div class="form-group">
                                 <label>List Peserta</label>
-                                <select name="listpesertaujian" class="form-control" tabindex="1">
+                                <select name="listpesertaujian[]" class="selectpicker form-control" multiple data-live-search="true" tabindex="1">
                                     <option disabled selected>Pilih List Peserta</option>
                                     <?php 
-                                    $sql2 = mysqli_query($mysqli, "SELECT * FROM user");
+                                    $sql2 = mysqli_query($mysqli, "SELECT * FROM user WHERE status = 'siswa' ");
                                     while($data2 = mysqli_fetch_array($sql2)){
                                     ?>
                                         <option value="<?php echo $data2['iduser']?>"><?php echo $data2['namauser']?></option>
@@ -90,12 +90,11 @@
             <thead>
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">Pembuat Soal</th>
-                    <th class="text-center">Tahun Soal</th>
-                    <th class="text-center">Jenis Soal</th>
+                    <th class="text-center">Nama User</th>
+                    <th class="text-center">Waktu</th>
+                    <th class="text-center">Periode</th>
                     <th class="text-center">Group Soal</th>
-                    <th class="text-center">Soal</th>
-                    <th class="text-center">Status</th>
+                    <th class="text-center">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -103,42 +102,32 @@
 
                 $tampil = mysqli_query(
                     $mysqli,
-                    "select gs.*, u.*, t.tahun, m.mapel, m.idmapel
-                from groupsoal as gs
-                inner join gurumapel as gm
-                on gs.idgurumapel = gm.idgurumapel
-                inner join mapel as m
-                on gm.idmapel = m.idmapel
-                inner join user as u
-                on gm.iduser = u.iduser
-                inner join tahunajaran as t
-                on gm.idtahun = t.idtahun"
+                    "select uu.id, u.namauser, st.waktu,st.periodeujian, gs.namagroup
+                    from user_ujian as uu
+                    inner join user as u
+                    on uu.iduser = u.iduser
+                    inner join setujian as st
+                    on uu.idujian = st.idujian
+                    inner join groupsoal as gs
+                    on st.idgroup = gs.idgroup
+                    where u.status = 'siswa' AND u.tipe_karyawan = 'karyawan'
+                    ORDER BY gs.idgroup
+                    "
+                
                 );
                 $no = 1;
                 while ($hasil = mysqli_fetch_array($tampil)) {
                 ?>
+                
                     <tr>
                         <td class="text-center"><?php echo $no++; ?></td>
                         <td class="text-center"><?php echo $hasil['namauser']; ?></td>
-                        <td class="text-center"><?php echo $hasil['tahun']; ?></td>
+                        <td class="text-center"><?php echo $hasil['waktu']; ?> menit</td>
+                        <td class="text-center"><?php echo $hasil['periodeujian']; ?></td>
                         <td class="text-center"><?php echo $hasil['namagroup']; ?></td>
-                        <td class="text-center"><?php echo $hasil['mapel']; ?></td>
                         <td class="text-center">
-                            <?php
-
-                            $j = mysqli_query($mysqli, "select * from soal where idgroup = '$hasil[idgroup]'");
-                            $jumlah = mysqli_num_rows($j);
-                            echo $jumlah;
-                            ?> Soal
+                            <a onclick="return confirm('apakah anda yakin ingin menghapus data ? ');" href="ujian/hapususerujian.php?id=<?php echo $hasil['id']; ?>" title="Delete" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                         </td>
-                        <td class="text-center">
-                            <?php if ($hasil['statusgrup'] == "Y") { ?>
-                                <span class="label label-success">Verified</span>
-                            <?php } else { ?>
-                                <span class="label label-danger">Not Verified</span>
-                            <?php } ?>
-                        </td>
-                        <!--<td class="text-center"></td>-->
                     </tr>
                 <?php } ?>
             </tbody>

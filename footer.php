@@ -105,6 +105,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key="></script>
 <script src="js/helpers/gmaps.min.js"></script>
 
+
 <!-- Load and execute javascript code used only in this page -->
 <script src="js/pages/index.js"></script>
 <script>$(function () {
@@ -115,7 +116,6 @@
 <script src="js/vendor/jquery.min.js"></script>
 <script src="js/vendor/bootstrap.min.js"></script>
 <script src="js/plugins.js"></script>
-
 
  <!-- Load and execute javascript code used only in tdis page -->
 <script src="js/pages/tablesDatatables.js"></script>
@@ -136,5 +136,9 @@
 <script>
     CKEDITOR.replace( 'editor1' );
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.14/js/bootstrap-select.min.js"></script>
+
 </body>
 </html>
