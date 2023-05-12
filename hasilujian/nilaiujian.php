@@ -70,8 +70,8 @@ $mapel = $_POST['mapel']; ?>
                     echo '<span class="label label-danger">Mengulang</span>';
                 } ?></td>
                 <td class="text-center">
-                    <a onclick="return confirm('apakah anda yakin ingin menghapus data ? ');" href="hasilujian/proseshapus.php?iduser=<?php echo $hasil['iduser']; ?>&idnilai=<?php echo $hasil['idnilai']; ?>&idujian=<?php echo $hasil['idujian']; ?>" title="Delete" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a
-                </td>n
+                    <a onclick="return confirm('apakah anda yakin ingin menghapus data ? ');" href="hasilujian/proseshapus.php?iduser=<?php echo $hasil['iduser']; ?>&idnilai=<?php echo $hasil['idnilai']; ?>&idujian=<?php echo $hasil['idujian']; ?>" title="Delete" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                </td>
                 </td>
                     </tr>
                 <?php } ?>
