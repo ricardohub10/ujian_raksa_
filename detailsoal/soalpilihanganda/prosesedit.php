@@ -11,7 +11,6 @@ if (isset($_POST['submit'])) {
     echo "<br>".$pilihanc = $_POST['pilihanc'];
     echo "<br>".$pilihand = $_POST['pilihand'];
     echo "<br>".$pilihane = $_POST['pilihane'];
-    echo "<br>".$pilihanf = $_POST['pilihanf'];
 
     echo "<br>".$pilihanbenar = $_POST['pilihanbenar'];
     echo "<br>".$pembahasan = $_POST['pembahasan'];
@@ -25,7 +24,6 @@ if (isset($_POST['submit'])) {
     pilihanc = '$pilihanc',
     pilihand = '$pilihand',
     pilihane = '$pilihane',
-    pilihanf = '$pilihanf',
 
     pilihanbenar = '$pilihanbenar',
     pembahasan = '$pembahasan'
