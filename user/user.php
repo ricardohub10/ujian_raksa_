@@ -61,8 +61,8 @@
                         <div class="form-group">
                             <label>Tipe Karyawan</label>
                             <div >
-                                <select name="status" class="form-control">
-                                    <option value="">Non Karyawan</option>
+                                <select name="tipe_karyawan" class="form-control">
+                                    <option value="non_karyawan">Non Karyawan</option>
                                     <option value="karyawan">Karyawan</option>
                                 </select>
                             </div>
@@ -152,7 +152,7 @@
                         <td class="text-center"><?php echo $hasil['jk'] == 'laki-laki' ? 'Laki-laki' : 'Perempuan'; ?></td>
                         <td class="text-center"><?php echo $hasil['tempatlahir'].', '.date('d F Y', strtotime($hasil['tgllahir']));?></td>
                         <td class="text-center"><?php echo $hasil['status']; ?></td>
-                        <td>
+                        <td class="text-center">
                         <?php if($hasil['tipe_karyawan']=='karyawan'){ echo '<span class="label label-success">Karyawan</span>' ;} else { echo '<span class="label label-danger">Non Karyawan</span>';} ?>
                         </td>
                         <td class="text-center"><?php echo $hasil['username']; ?></td>
@@ -215,8 +215,8 @@
                                         <label>Tipe Karyawan</label>
                                         <div >
                                             <select name="tipe_karyawan" class="form-control">
-                                                <option <?php if($hasil['tipe_karyawan']==NULL){echo "selected"; } ?> value="<?php echo $hasil['tipe_karyawan'] ?>">Non Karyawan</option>
-                                                <option <?php if($hasil['tipe_karyawan']=='karyawan'){echo "selected"; } ?> value="karyawan">Karyawan</option>
+                                                <option <?php if($hasil['tipe_karyawan']==NULL || $hasil['tipe_karyawan'] == 'non_karyawan'){echo "selected"; } ?> value="non_karyawan">Non Karyawan</option>
+                                                <option <?php if($hasil['tipe_karyawan']=='karyawan' || $hasil['status'] == 'guru'){echo "selected"; } ?> value="karyawan">Karyawan</option>
                                             </select>
                                         </div>
                                     </div>

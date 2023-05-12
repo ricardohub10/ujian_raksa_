@@ -7,6 +7,7 @@ if (isset($_POST['submit'])) {
     $tempatlahir = $_POST['tempatlahir'];
     $tgllahir = $_POST['tgllahir'];
     $status = $_POST['status'];
+    $tipe_karyawan = $_POST['tipe_karyawan'];
     $username = $_POST['username'];
     $password = base64_encode($_POST['password']);
     
@@ -21,6 +22,7 @@ if (isset($_POST['submit'])) {
         tempatlahir='$tempatlahir',
         tgllahir='$tgllahir',
         status='$status',
+        tipe_karyawan='$tipe_karyawan',
         username='$username',
         password='$password'");
         if ($insert) {
