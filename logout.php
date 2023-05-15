@@ -33,9 +33,10 @@
         ");
 
         // Menghancurkan sesi
-        session_destroy();
+       
         $iduser = $_SESSION['iduser'];
-        mysqli_query($mysqli, "UPDATE user SET session_id='' WHERE iduser='$iduser' ");
+        mysqli_query($mysqli, "UPDATE user SET session_id= NULL WHERE iduser='$iduser' ");
+        session_destroy();
 
 
         header("location:index.php");

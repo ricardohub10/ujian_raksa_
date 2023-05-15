@@ -54,6 +54,16 @@ include "header.php";
         } 
     }
     // Sampai sini
+
+    // Session Kostick Chart
+
+    else if ($_SESSION && isset($_GET["kostickchart"])){
+        if($_SESSION['status'] == 'admin' or $_SESSION['status'] == 'guru'){
+            include "kostickchart.php";
+        }else{
+            echo "<script>window.history.go(-1);</script>";
+        }
+    }
     
     else if($_SESSION && isset($_GET["detailsoal"])){
         if($_SESSION['status'] == 'guru' or $_SESSION['status'] == 'admin'){
