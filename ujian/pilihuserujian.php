@@ -110,7 +110,6 @@
                     on uu.idujian = st.idujian
                     inner join groupsoal as gs
                     on st.idgroup = gs.idgroup
-                    where u.status = 'siswa' AND u.tipe_karyawan = 'karyawan'
                     ORDER BY gs.idgroup
                     "
                 
