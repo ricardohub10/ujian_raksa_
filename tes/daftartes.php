@@ -411,8 +411,24 @@ while ($data = mysqli_fetch_array($hasil)){
 <br>
 <br>
  <input type="hidden" id="pilihan" name="pilihan[]">-->
-<?php }?>
-            <button type="submit" name="submit" class="btn btn-info" id="btn-test">Jawab</button> 
+ <?php }?>
+            
+            <?php if ($data['jenissoal'] == 'kostickanswer') { ?>
+                <button type="submit" name="submit" class="btn btn-info" id="btn-test" disabled>Jawab</button>
+                <script>
+                    // JavaScript code to enable the submit button when a radio button is selected
+                    const radioButtons = document.querySelectorAll('input[type="radio"]');
+                    const submitButton = document.getElementById('btn-test');
+
+                    radioButtons.forEach((radio) => {
+                        radio.addEventListener('change', () => {
+                            submitButton.disabled = false;
+                        });
+                    });
+                </script>
+            <?php } else { ?>
+                <button type="submit" name="submit" class="btn btn-info" id="btn-test">Jawab</button>
+            <?php } ?>
             
             <?php
 }
