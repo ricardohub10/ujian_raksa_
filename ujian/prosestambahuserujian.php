@@ -29,23 +29,24 @@ if (isset($_POST['submit'])) {
     // $cekduplikatuserujian = mysqli_query($mysqli,"SELECT iduser from user_ujian where iduser = $iduser");
     // $cekduplikatujian = mysqli_query($mysqli,"SELECT idujian from user_ujian where idujian = $listgrupmapel");
 
-    $sql_cek_userujian = mysqli_query($mysqli, "SELECT * FROM user_ujian WHERE iduser = '$iduser' AND idujian = '$listgrupmapel'")or die(mysqli_error($mysqli));
+    $sql_cek_userujian = mysqli_query($mysqli, "SELECT * FROM user_ujian WHERE iduser IN ('" . implode("','", $listpeserta) . "') AND idujian = '$listgrupmapel'")or die(mysqli_error($mysqli));
     if(mysqli_num_rows($sql_cek_userujian) > 0){
         echo "<script>alert('User tersebut sudah terdaftar ujian');
         window.history.back();</script>";
     } else{
+
         foreach ($listpeserta as $userid)
         $insert = mysqli_query($mysqli, "insert into user_ujian set 
        
         idujian='$_POST[listgrupmapel]',
         iduser='$userid'
         ");
-        var_dump($listpeserta_str);
+
         if ($insert) {
-            echo "<script>alert('proses tambah stock berhasil');'</script>";
+            echo "<script>alert('proses tambah peserta berhasil');'</script>";
             header('location:http://localhost/ujian_raksa_/index.php?user');
         } else {
-            echo "<script>alert('proses tambah stock gagal');window.history.go(-1);</script>";
+            echo "<script>alert('proses tambah peserta gagal');window.history.go(-1);</script>";
         }
     }
   
