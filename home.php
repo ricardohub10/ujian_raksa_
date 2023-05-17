@@ -1,4 +1,28 @@
-<?php include "koneksi.php"; ?>
+<?php 
+include "koneksi.php";
+?>
+
+<?php
+    $iduser = $_SESSION['iduser'];
+    $session_id = $_SESSION['session_id'];
+    
+    $cek_session = mysqli_query($mysqli, "select * from user where iduser= '$iduser' and session_id= '$session_id' ");
+    if(mysqli_num_rows($cek_session) > 0){
+        echo "";
+    }
+    else{
+        echo "<script>window.location.href='logout.php'</script>";
+    }
+    // if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 5)) {
+    //     $iduser = $_SESSION['iduser'];
+    //     mysqli_query($mysqli, "UPDATE user SET session_id = NULL WHERE iduser = '$iduser'");
+    //     session_destroy();
+    // }
+    
+    // Menyimpan waktu aktivitas terakhir
+    // $_SESSION['last_activity'] = time();
+?>
+
 <div class="row">
 <div class="col-sm-6 col-lg-12">
     <!-- Widget -->
@@ -213,3 +237,22 @@
     }
     ?>
 </div>
+<script>
+    window.addEventListener('beforeunload', function(event) {
+        event.preventDefault(); // Mencegah tindakan default dari event
+        event.returnValue = 'Jika Anda keluar, maka Anda akan logout secara otomatis'; // Membutuhkan atribut returnValue pada event untuk memicu pesan konfirmasi
+    });
+    
+    window.addEventListener('unload', function() {
+        
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'update_session.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                console.log(xhr.responseText);
+            }
+        };
+        xhr.send('iduser=<?php echo $iduser; ?>&session_id=<?php echo $session_id; ?>');
+    });
+</script>

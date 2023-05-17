@@ -26,6 +26,7 @@ if (mysqli_num_rows($cek) > 0) {
         $_SESSION['status'] = $data['status'];
         $_SESSION['iduser'] = $data['iduser'];
         $_SESSION['namauser'] = $data['namauser'];
+        $_SESSION['session_id'] = $session_id;
     
         $iduser = $data['iduser'];
         mysqli_query($mysqli, "UPDATE user SET session_id='$session_id' WHERE iduser='$iduser' ");
