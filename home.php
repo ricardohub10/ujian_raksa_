@@ -13,14 +13,6 @@ include "koneksi.php";
     else{
         echo "<script>window.location.href='logout.php'</script>";
     }
-    // if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 5)) {
-    //     $iduser = $_SESSION['iduser'];
-    //     mysqli_query($mysqli, "UPDATE user SET session_id = NULL WHERE iduser = '$iduser'");
-    //     session_destroy();
-    // }
-    
-    // Menyimpan waktu aktivitas terakhir
-    // $_SESSION['last_activity'] = time();
 ?>
 
 <div class="row">
@@ -238,11 +230,6 @@ include "koneksi.php";
     ?>
 </div>
 <script>
-    window.addEventListener('beforeunload', function(event) {
-        event.preventDefault(); // Mencegah tindakan default dari event
-        event.returnValue = 'Jika Anda keluar, maka Anda akan logout secara otomatis'; // Membutuhkan atribut returnValue pada event untuk memicu pesan konfirmasi
-    });
-    
     window.addEventListener('unload', function() {
         
         var xhr = new XMLHttpRequest();
