@@ -13,6 +13,7 @@ if (isset($_POST['submit'])) {
     $username = $_POST['username'];
     // $password = base64_encode($_POST['password']);
     $password = ($_POST['password']);
+    $session_id = $_POST['session_id'];
 
 
     $insert = mysqli_query($mysqli, "update user set  

@@ -136,6 +136,7 @@
                     <th class="text-center">Status</th>
                     <th class="text-center">Tipe Karyawan</th>
                     <th class="text-center">Username</th>
+                    <th class="text-center">Status Session</th>
                     <th class="text-center">Actions</th>
                 </tr>
             </thead>
@@ -152,15 +153,27 @@
                         <td class="text-center"><?php echo $hasil['jk'] == 'laki-laki' ? 'Laki-laki' : 'Perempuan'; ?></td>
                         <td class="text-center"><?php echo $hasil['tempatlahir'].', '.date('d F Y', strtotime($hasil['tgllahir']));?></td>
                         <td class="text-center"><?php echo $hasil['status']; ?></td>
+                        
                         <td class="text-center">
                         <?php if($hasil['tipe_karyawan']=='karyawan'){ echo '<span class="label label-success">Karyawan</span>' ;} else { echo '<span class="label label-danger">Non Karyawan</span>';} ?>
                         </td>
                         <td class="text-center"><?php echo $hasil['username']; ?></td>
-                        <!--<td class="text-center"></td>-->
+
+                        <td class="text-center">
+                            <?php if ($hasil['session_id'] != NULL): ?>
+                                <a onclick="return confirm('Apakah Anda yakin ingin kill session user ini?');" href="user/delete_session.php?id=<?php echo $hasil['iduser']; ?>" title="Delete" class="btn btn-sm btn-success">
+                                    Hapus Session <i class="fa fa-trash"></i>
+                                </a>
+                            <?php else: ?>
+                                <span class="label label-danger">Tidak Ada Session</span>
+                            <?php endif; ?>
+                        </td>
+
+
                         <td class="text-center">
                             <a class="btn btn-sm btn-info" data-placement="bottom" title="Settings" onclick="$('#modal-user-settings<?php echo $hasil['iduser'];?>').modal('show');"><i class="fa fa-edit"></i></a>
 
-                            <a onclick="return confirm('apakah anda yakin ingin menghapus data? ');" href="user/proseshapus.php?id=<?php echo $hasil['iduser']; ?>" title="Delete" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a
+                            <a onclick="return confirm('apakah anda yakin ingin menghapus data? ');" href="user/proseshapus.php?id=<?php echo $hasil['iduser']; ?>" title="Delete" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
 
                         </td>
                     </tr>
