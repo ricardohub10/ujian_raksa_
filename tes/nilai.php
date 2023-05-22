@@ -1,7 +1,6 @@
 `<?php include "koneksi.php";
 
-$tampil = mysqli_query($mysqli,"select * from nilai 
-where iduser = '$_SESSION[iduser]' and idujian = '$_SESSION[idujian]' ");
+$tampil = mysqli_query($mysqli,"SELECT nilai.*, soal.jenissoal FROM nilai JOIN setujian ON nilai.idujian = setujian.idujian JOIN soal ON setujian.idgroup = soal.idgroup WHERE nilai.iduser = '$_SESSION[iduser]' AND nilai.idujian = '$_SESSION[idujian]' ");
 $nilai = mysqli_fetch_array($tampil);
 ?>
 <?php include "koneksi.php"; ?>
@@ -20,7 +19,13 @@ $nilai = mysqli_fetch_array($tampil);
     <div class="alert alert-success alert-dismissable">
         <center>
             <font size="6">Hasil Ujian Online Anda</font>
-            <h1 style="font-size:175px;"><b><?php echo $nilai['nilai']; ?></b></h1>
+            <h1 style="font-size:<?php echo ($nilai['jenissoal'] == 'singlechoice') ? '175px' : '75px'; ?>;"><b><?php 
+                if ($nilai['jenissoal'] == 'singlechoice') {
+                    echo $nilai['nilai'];
+                } else if ($nilai['jenissoal'] == 'kostickanswer') {
+                    echo "Anda Telah Menyelesaikan Ujian";
+                }
+            ?></b></h1>
         </center>
     </div>
 </div>

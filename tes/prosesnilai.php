@@ -38,11 +38,12 @@ idujian = '$idujian',
 nilai = '$nilai',
 tgl = now() ");
 
-$insert2  = mysqli_query($mysqli,"insert into statusujian('idujian','iduser','statusujian') VALUES ('$idujian','$iduser','$statusujian')");
+// $insert2  = mysqli_query($mysqli,"insert into statusujian('idujian','iduser','statusujian') VALUES ('$idujian','$iduser','$statusujian')");
 
 
 unset($_SESSION['ujian']);
 unset($_SESSION['mulai']);
+
 header("location:../index.php?nilai");
 
 ?>)

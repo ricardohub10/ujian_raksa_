@@ -162,8 +162,9 @@ include "header.php";
         }else{
             echo "<script>window.history.go(-1);</script>";
         }
-    }else if($_SESSION && isset($_GET["hasilujian"])){
-        if($_SESSION['status'] == 'siswa'){
+    }
+    else if($_SESSION && isset($_GET["hasilujian"])){
+        if($_SESSION['status'] == 'guru'){
             include 'hasilujian/hasilujian.php';
         }else{
             echo "<script>window.history.go(-1);</script>";
