@@ -26,11 +26,11 @@
         // Menghitung nilai
         $nilai = $jumlah_benar * 100 / $soal;
 
-        // Insert nilai ke dalam tabel
-        $insert = mysqli_query($mysqli, "
-            INSERT INTO nilai (iduser, idujian, nilai)
-            VALUES ('$iduser', '$idujian', '$nilai')
-        ");
+        // // Insert nilai ke dalam tabel
+        // $insert = mysqli_query($mysqli, "
+        //     INSERT INTO nilai (iduser, idujian, nilai)
+        //     VALUES ('$iduser', '$idujian', '$nilai')
+        // ");
 
         // Menghancurkan sesi
        
