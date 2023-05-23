@@ -210,7 +210,7 @@ while ($data = mysqli_fetch_array($hasil)){
             <td valign=top style='width:27.15pt;padding:0cm 5.4pt 0cm 5.4pt'>
             <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
             150%'><span style='font-family:"MS Mincho"'>
-            <input name="pilihan[]" <?php if($data['jawaban'] == "a"){echo "checked"; }?> value="<?php echo $data["kostickcategory_a"]?>" type="radio"></span></p></td> 
+            <input name="pilihan[]" <?php if($data['jawaban'] == $data["kostickcategory_a"]){echo "checked"; }?> value="<?php echo $data["kostickcategory_a"]?>" type="radio"></span></p></td> 
 
             <td valign=top style='width:415.25pt;padding:0cm 5.4pt 0cm 5.4pt'>
             <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
@@ -220,7 +220,7 @@ while ($data = mysqli_fetch_array($hasil)){
             <td width=36 valign=top style='width:27.15pt;padding:0cm 5.4pt 0cm 5.4pt'>
             <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
             150%'><span style='font-family:"MS Mincho"'>
-            <input name="pilihan[]" <?php if($data['jawaban'] == "b"){echo "checked"; }?> value="<?php echo $data["kostickcategory_b"]?>" type="radio"></span></p></td>   
+            <input name="pilihan[]" <?php if($data['jawaban'] == $data["kostickcategory_b"]){echo "checked"; }?> value="<?php echo $data["kostickcategory_b"]?>" type="radio"></span></p></td>   
             <td width=554 valign=top style='width:415.25pt;padding:0cm 5.4pt 0cm 5.4pt'>
             <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
             150%'><span style='font-family:"Times New Roman","serif"'><?php echo $data['pilihanb'];?></span></p>
